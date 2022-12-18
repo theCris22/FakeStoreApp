@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FakeStore</string>
+    <string name="description_image_login">Imagen_iniciar_sesión</string>
+
+
+
+    <string name="login_text">Iniciar Sesión</string>
+    <string name="you_don_t_have_account_signup">¿No tienes cuenta? Registrate</string>
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="signup_text">Registro</string>
+    <string name="user_information_text">Información del usuario</string>
+    <string name="name_text">Nombre(s)</string>
+    <string name="last_name_text">Apellidos</string>
+    <string name="user_address_text">Domicilio</string>
+    <string name="country_text">País</string>
+    <string name="town_text">Estado</string>
+    <string name="street_text">Calle</string>
+    <string name="zip_code_text">Código postal</string>
+    <string name="user_account_text">Cuenta</string>
+    <string name="alias_text">Alias</string>
+    <string name="password_confirm">Confirmar password</string>
+</resources>

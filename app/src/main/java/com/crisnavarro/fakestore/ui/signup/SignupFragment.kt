@@ -1,26 +1,24 @@
-package com.crisnavarro.fakestore.ui.login
+package com.crisnavarro.fakestore.ui.signup
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.crisnavarro.fakestore.R
-import com.crisnavarro.fakestore.databinding.FragmentLoginBinding
+import com.crisnavarro.fakestore.databinding.FragmentSignupBinding
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class SignupFragment : Fragment(R.layout.fragment_signup) {
 
-    private var binding: FragmentLoginBinding? = null
-    private val viewModel: LoginViewModel by viewModels()
+    private var binding: FragmentSignupBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
+        binding = FragmentSignupBinding.inflate(inflater, container, false)
         return binding!!.root
     }
 
@@ -30,8 +28,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun initViews() = with(binding!!) {
-        btnSignup.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignupFragment())
+        iconBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

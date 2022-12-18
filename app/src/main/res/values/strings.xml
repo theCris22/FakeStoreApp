@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">FakeStore</string>
+    <string name="description_image_login">description_image_login</string>
+    <string name="description_image_signup" translatable="false">description_image_signup</string>
+    <string name="description_arrow_back" translatable="false">description_arrow_back</string>
+
+
+    <string name="login_text">Login</string>
+    <string name="you_don_t_have_account_signup">You don\'t have account? SignUp</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup_text">SignUp</string>
+    <string name="user_information_text">User information</string>
+    <string name="name_text">Name</string>
+    <string name="last_name_text">Last name</string>
+    <string name="user_address_text">Address</string>
+    <string name="country_text">Country</string>
+    <string name="town_text">Town</string>
+    <string name="street_text">Street</string>
+    <string name="zip_code_text">Zip code</string>
+    <string name="user_account_text">Account</string>
+    <string name="alias_text">Alias</string>
+    <string name="password_confirm">Confirm password</string>
+
 </resources>
