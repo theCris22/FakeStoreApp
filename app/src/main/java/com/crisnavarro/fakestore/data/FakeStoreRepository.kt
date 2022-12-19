@@ -5,15 +5,15 @@ import com.crisnavarro.fakestore.data.network.FakeStoreApi
 import com.crisnavarro.fakestore.data.network.request.LoginRequest
 import javax.inject.Inject
 
-class FakeStoreRepository @Inject constructor(val api: FakeStoreApi) {
+class FakeStoreRepository @Inject constructor(private val api: FakeStoreApi) {
 
-    suspend fun login(loginRequest: LoginRequest) {
+    suspend fun login(loginRequest: LoginRequest, onSuccess: () -> Unit, onError: () -> Unit) {
         val call = api.login(loginRequest)
 
         if (call.isSuccessful)
-            Log.e("SUCCESS ->", call.body().toString())
+            onSuccess()
         else
-            Log.e("ERROR ->", call.errorBody()!!.string())
+            onError()
     }
 
 }

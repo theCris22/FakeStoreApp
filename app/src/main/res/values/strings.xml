@@ -21,5 +21,6 @@
     <string name="user_account_text">Account</string>
     <string name="alias_text">Alias</string>
     <string name="password_confirm">Confirm password</string>
+    <string name="user_name">User name</string>
 
 </resources>
