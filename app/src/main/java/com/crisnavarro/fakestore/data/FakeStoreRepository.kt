@@ -7,13 +7,20 @@ import javax.inject.Inject
 
 class FakeStoreRepository @Inject constructor(private val api: FakeStoreApi) {
 
-    suspend fun login(loginRequest: LoginRequest, onSuccess: () -> Unit, onError: () -> Unit) {
-        val call = api.login(loginRequest)
-
-        if (call.isSuccessful)
-            onSuccess()
-        else
-            onError()
+    suspend fun login(
+        loginRequest: LoginRequest,
+        onSuccess: (token: String) -> Unit,
+        onError: (message: String) -> Unit
+    ) {
+        try {
+            val call = api.login(loginRequest)
+            if (call.isSuccessful)
+                onSuccess(call.body()?.token.toString())
+            else
+                onError(call.errorBody()?.string().toString())
+        } catch (ex: Exception) {
+            onError(ex.cause.toString())
+        }
     }
 
 }

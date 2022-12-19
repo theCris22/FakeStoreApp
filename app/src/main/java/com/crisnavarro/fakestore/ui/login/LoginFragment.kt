@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -30,9 +31,18 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews()
         initListeners()
         initObservers()
     }
+
+    private fun initViews() = with(binding!!) {
+        etUserName.doOnTextChanged { text, _, _, _ -> enableButtonLogin(text.toString()) }
+        etPassword.doOnTextChanged { text, _, _, _ -> enableButtonLogin(text.toString()) }
+    }
+
+    private fun enableButtonLogin(text: String) =
+        with(binding!!) { btnLogin.isEnabled = text.length >= 3 }
 
     private fun initListeners() = with(binding!!) {
         btnSignup.setOnClickListener { findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignupFragment()) }
@@ -53,7 +63,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val password = etPassword.text.toString()
 
         viewModel.login(userName, password)
-
     }
 
     override fun onDestroy() {

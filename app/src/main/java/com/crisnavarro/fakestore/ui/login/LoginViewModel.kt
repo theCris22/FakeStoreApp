@@ -1,5 +1,6 @@
 package com.crisnavarro.fakestore.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,9 +25,9 @@ class LoginViewModel @Inject constructor(
 
         loginUseCase.invoke(userName, password,
             onSuccess = {
-
+                Log.e("SUCCESS ->", it)
             }, onError = {
-
+                Log.e("ERROR ->", it)
             }
         )
         _loading.postValue(false)

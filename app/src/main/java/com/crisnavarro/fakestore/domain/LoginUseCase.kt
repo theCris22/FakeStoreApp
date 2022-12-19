@@ -9,9 +9,8 @@ class LoginUseCase @Inject constructor(private val repository: FakeStoreReposito
     suspend operator fun invoke(
         userName: String,
         password: String,
-        onSuccess: () -> Unit,
-        onError: () -> Unit
-    ) =
-        repository.login(LoginRequest(userName, password), onSuccess, onError)
+        onSuccess: (token: String) -> Unit,
+        onError: (message: String) -> Unit
+    ) = repository.login(LoginRequest(userName, password), onSuccess, onError)
 
 }
