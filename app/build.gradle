@@ -45,6 +45,7 @@ dependencies {
     def dagger_hilt_version = '2.41'
     def glide_version = '4.14.1'
     def logging_version = '5.0.0-alpha.2'
+    def lottieVersion = '3.6.1'
     def navigation_version = '2.5.3'
     def retrofit_version = '2.9.0'
     def room_version = '2.4.3'
@@ -70,6 +71,9 @@ dependencies {
 
     // Logging
     implementation "com.squareup.okhttp3:logging-interceptor:$logging_version"
+
+    // Lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"

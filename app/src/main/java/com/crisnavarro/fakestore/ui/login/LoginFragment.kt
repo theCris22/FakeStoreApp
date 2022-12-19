@@ -9,7 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.crisnavarro.fakestore.R
 import com.crisnavarro.fakestore.databinding.FragmentLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private var binding: FragmentLoginBinding? = null
@@ -26,13 +28,20 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViews()
+        initListeners()
     }
 
-    private fun initViews() = with(binding!!) {
-        btnSignup.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignupFragment())
-        }
+    private fun initListeners() = with(binding!!) {
+        btnSignup.setOnClickListener { findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignupFragment()) }
+        btnLogin.setOnClickListener { login() }
+    }
+
+    private fun login() = with(binding!!) {
+        val userName = etUserName.text.toString()
+        val password = etPassword.text.toString()
+
+        //viewModel.login(userName, password)
+
     }
 
     override fun onDestroy() {
