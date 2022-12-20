@@ -21,4 +21,6 @@
     <string name="alias_text">Alias</string>
     <string name="password_confirm">Confirmar password</string>
     <string name="user_name">Nombre de usuario</string>
+    <string name="city_text">Ciudad</string>
+    <string name="number_text">Número</string>
 </resources>

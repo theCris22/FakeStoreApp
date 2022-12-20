@@ -52,9 +52,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun initObservers() = with(binding!!) {
         viewModel.loading.observe(viewLifecycleOwner) {
             if (it)
-                animationView.show()
+                view?.show(animationView)
             else
-                animationView.hide()
+                view?.hide(animationView)
         }
     }
 
