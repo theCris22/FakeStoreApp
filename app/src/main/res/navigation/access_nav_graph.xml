@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/access_nav_graph.xml"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -20,4 +20,8 @@
         android:id="@+id/signupFragment"
         android:name="com.crisnavarro.fakestore.ui.signup.SignupFragment"
         android:label="SignupFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.crisnavarro.fakestore.ui.home.HomeFragment"
+        android:label="HomeFragment" />
 </navigation>

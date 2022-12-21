@@ -3,7 +3,6 @@
     <string name="description_image_login">Imagen_iniciar_sesión</string>
 
 
-
     <string name="login_text">Iniciar Sesión</string>
     <string name="you_don_t_have_account_signup">¿No tienes cuenta? Registrate</string>
     <string name="email">Correo</string>
@@ -23,4 +22,8 @@
     <string name="user_name">Nombre de usuario</string>
     <string name="city_text">Ciudad</string>
     <string name="number_text">Número</string>
+    <string name="user_category_electronics">Electronicos</string>
+    <string name="user_category_jewelery">Joyas</string>
+    <string name="user_category_mens_clothing">Men\'s clothing</string>
+    <string name="user_category_womens_clothing">Women\'s clothing</string>
 </resources>
