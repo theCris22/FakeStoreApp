@@ -3,7 +3,9 @@
     <string name="description_image_login">description_image_login</string>
     <string name="description_image_signup" translatable="false">description_image_signup</string>
     <string name="description_arrow_back" translatable="false">description_arrow_back</string>
-
+    <string name="description_shopping_cart" translatable="false">description_shopping_cart</string>
+    <string name="description_image_item" translatable="false">description_image_item</string>
+    <string name="description_empty_results" translatable="false">description_empty_results</string>
 
     <string name="login_text">Login</string>
     <string name="you_don_t_have_account_signup">You don\'t have account? SignUp</string>
@@ -24,5 +26,8 @@
     <string name="user_name">User name</string>
     <string name="city_text">City</string>
     <string name="number_text">Number</string>
-
+    <string name="user_category_electronics">Electronics</string>
+    <string name="user_category_jewelery">Jewelery</string>
+    <string name="user_category_mens_clothing">Men\'s clothing</string>
+    <string name="user_category_womens_clothing">Women\'s clothing</string>
 </resources>

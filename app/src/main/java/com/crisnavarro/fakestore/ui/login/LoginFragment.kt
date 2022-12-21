@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -37,6 +38,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun initViews() = with(binding!!) {
+        etUserName.setText("mor_2314")
+        etPassword.setText("83r5^_")
         etUserName.doOnTextChanged { text, _, _, _ -> enableButtonLogin(text.toString()) }
         etPassword.doOnTextChanged { text, _, _, _ -> enableButtonLogin(text.toString()) }
     }
@@ -55,6 +58,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 view?.show(animationView)
             else
                 view?.hide(animationView)
+        }
+        viewModel.successLogin.observe(viewLifecycleOwner) {
+            /*if (it)
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment2())*/
+        }
+        viewModel.failLogin.observe(viewLifecycleOwner) {
+            if (!it.isNullOrBlank())
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+
         }
     }
 
