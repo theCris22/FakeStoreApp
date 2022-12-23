@@ -1,14 +1,17 @@
 package com.crisnavarro.fakestore.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.crisnavarro.fakestore.R
 import com.crisnavarro.fakestore.core.hide
 import com.crisnavarro.fakestore.core.show
+import com.crisnavarro.fakestore.data.network.models.Product
 import com.crisnavarro.fakestore.databinding.FragmentHomeBinding
 import com.crisnavarro.fakestore.ui.adapters.ProductsAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,7 +41,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initViews() = with(binding!!) {
-        itemsAdapter = ProductsAdapter()
+        itemsAdapter = ProductsAdapter() { onClickProduct(it) }
         viewModel.getAllProducts()
         rvShopItems.apply {
             adapter = itemsAdapter
@@ -46,8 +49,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
+    private fun onClickProduct(it: Product) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(it))
+    }
+
     private fun initListeners() = with(binding!!) {
         swipeLayout.setOnRefreshListener { viewModel.getAllProducts() }
+        ivProfile.setOnClickListener { findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProfileFragment()) }
     }
 
     private fun initObservers() = with(binding!!) {

@@ -4,10 +4,13 @@ import com.crisnavarro.fakestore.data.network.request.CreateUserRequest
 import com.crisnavarro.fakestore.data.network.request.LoginRequest
 import com.crisnavarro.fakestore.data.network.response.GetProductsResponse
 import com.crisnavarro.fakestore.data.network.response.LoginResponse
+import com.crisnavarro.fakestore.data.network.response.ProfileResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface FakeStoreApi {
 
@@ -19,5 +22,10 @@ interface FakeStoreApi {
 
     @GET("/products")
     suspend fun getAllProducts(): Response<GetProductsResponse>
+
+    @GET("https://fakestoreapi.com/users/")
+    suspend fun getProfile(
+        @Query("id") id: String = "10"
+    ): Response<ProfileResponse>
 
 }

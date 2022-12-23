@@ -11,7 +11,9 @@ import com.crisnavarro.fakestore.R
 import com.crisnavarro.fakestore.data.network.models.Product
 import com.crisnavarro.fakestore.databinding.ItemRowBinding
 
-class ProductsAdapter :
+class ProductsAdapter(
+    private val onItemClickListener: (product: Product) -> Unit
+) :
     ListAdapter<Product, ProductsAdapter.ProductsViewHolder>(ProductsDiffCallBack) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
@@ -25,18 +27,23 @@ class ProductsAdapter :
     }
 
     override fun onBindViewHolder(holder: ProductsViewHolder, position: Int) {
-        holder.setData(currentList[position])
+        holder.setData(currentList[position], onItemClickListener)
     }
 
     class ProductsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val binding = ItemRowBinding.bind(view)
 
-        fun setData(product: Product) = with(binding) {
-            Glide.with(itemView).load(product.image).placeholder(R.drawable.icon_empty).into(ivItem)
-            itemTitle.text = product.title
-            itemPrice.text = "${product.price}".format("%.2f")
-        }
+        fun setData(product: Product, onItemClickListener: (product: Product) -> Unit) =
+            with(binding) {
+                Glide.with(itemView).load(product.image).placeholder(R.drawable.icon_empty)
+                    .into(ivItem)
+                itemTitle.text = product.title
+                itemPrice.text = "${product.price}".format("%.2f")
+
+                rowProduct.setOnClickListener { onItemClickListener(product) }
+
+            }
 
     }
 

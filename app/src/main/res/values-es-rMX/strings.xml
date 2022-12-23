@@ -26,4 +26,5 @@
     <string name="user_category_jewelery">Joyas</string>
     <string name="user_category_mens_clothing">Men\'s clothing</string>
     <string name="user_category_womens_clothing">Women\'s clothing</string>
+    <string name="account_info">Información de la cuenta</string>
 </resources>

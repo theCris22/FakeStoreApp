@@ -4,6 +4,7 @@ import com.crisnavarro.fakestore.data.network.FakeStoreApi
 import com.crisnavarro.fakestore.data.network.models.Product
 import com.crisnavarro.fakestore.data.network.request.CreateUserRequest
 import com.crisnavarro.fakestore.data.network.request.LoginRequest
+import com.crisnavarro.fakestore.data.network.response.ProfileResponse
 import javax.inject.Inject
 
 class FakeStoreRepository @Inject constructor(private val api: FakeStoreApi) {
@@ -48,6 +49,21 @@ class FakeStoreRepository @Inject constructor(private val api: FakeStoreApi) {
             val call = api.getAllProducts()
             if (call.isSuccessful)
                 onSuccess(call.body() ?: arrayListOf())
+            else
+                onError(call.errorBody()?.string().toString())
+        } catch (ex: Exception) {
+            onError(ex.cause.toString())
+        }
+    }
+
+    suspend fun getProfile(
+        onSuccess: (profile: ProfileResponse) -> Unit,
+        onError: (message: String) -> Unit
+    ) {
+        try {
+            val call = api.getProfile()
+            if (call.isSuccessful)
+                onSuccess(call.body()!!)
             else
                 onError(call.errorBody()?.string().toString())
         } catch (ex: Exception) {
