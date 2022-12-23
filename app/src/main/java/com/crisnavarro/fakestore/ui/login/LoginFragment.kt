@@ -60,8 +60,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 view?.hide(animationView)
         }
         viewModel.successLogin.observe(viewLifecycleOwner) {
-            /*if (it)
-                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment2())*/
+            if (it)
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
         }
         viewModel.failLogin.observe(viewLifecycleOwner) {
             if (!it.isNullOrBlank())

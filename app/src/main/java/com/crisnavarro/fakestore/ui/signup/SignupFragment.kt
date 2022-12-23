@@ -83,7 +83,7 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
             city = etCity.text.toString(),
             number = etNumber.text.toString().toInt(),
             street = etStreet.text.toString(),
-            zipcode = etZipCode.text.toString().toInt()
+            zipcode = etZipCode.text.toString()
         )
 
         viewModel.signup(

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.crisnavarro.fakestore.R
 import com.crisnavarro.fakestore.core.hide
 import com.crisnavarro.fakestore.core.show
@@ -48,6 +49,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun initListeners() = with(binding!!) {
         swipeLayout.setOnRefreshListener { viewModel.getAllProducts() }
+        ivProfile.setOnClickListener { findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProfileFragment()) }
     }
 
     private fun initObservers() = with(binding!!) {

@@ -6,6 +6,9 @@
     <string name="description_shopping_cart" translatable="false">description_shopping_cart</string>
     <string name="description_image_item" translatable="false">description_image_item</string>
     <string name="description_empty_results" translatable="false">description_empty_results</string>
+    <string name="description_image_profile" translatable="false">description_image_profile</string>
+    <string name="description_icon_close" translatable="false">description_icon_close</string>
+
 
     <string name="login_text">Login</string>
     <string name="you_don_t_have_account_signup">You don\'t have account? SignUp</string>
@@ -30,4 +33,5 @@
     <string name="user_category_jewelery">Jewelery</string>
     <string name="user_category_mens_clothing">Men\'s clothing</string>
     <string name="user_category_womens_clothing">Women\'s clothing</string>
+    <string name="account_info">Account Info</string>
 </resources>
