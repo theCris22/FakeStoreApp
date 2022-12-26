@@ -23,9 +23,14 @@ interface FakeStoreApi {
     @GET("/products")
     suspend fun getAllProducts(): Response<GetProductsResponse>
 
-    @GET("https://fakestoreapi.com/users/")
+    @GET("/users/")
     suspend fun getProfile(
         @Query("id") id: String = "10"
     ): Response<ProfileResponse>
+
+    @GET("/products/category/{category}")
+    suspend fun getProductsByCategory(
+        @Path("category") category: String
+    ): Response<GetProductsResponse>
 
 }

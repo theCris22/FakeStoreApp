@@ -14,6 +14,7 @@ import com.crisnavarro.fakestore.core.show
 import com.crisnavarro.fakestore.data.network.models.Product
 import com.crisnavarro.fakestore.databinding.FragmentHomeBinding
 import com.crisnavarro.fakestore.ui.adapters.ProductsAdapter
+import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,12 +51,37 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun onClickProduct(it: Product) {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(it))
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToProductDetailFragment(
+                it
+            )
+        )
     }
 
     private fun initListeners() = with(binding!!) {
         swipeLayout.setOnRefreshListener { viewModel.getAllProducts() }
         ivProfile.setOnClickListener { findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProfileFragment()) }
+        ivCart.setOnClickListener { findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCartFragment()) }
+        chipElectronic.setOnClickListener {
+            viewModel.productsByCategory(
+                chipElectronic.text.toString().lowercase()
+            )
+        }
+        chipJewelery.setOnClickListener {
+            viewModel.productsByCategory(
+                chipJewelery.text.toString().lowercase()
+            )
+        }
+        chipMan.setOnClickListener {
+            viewModel.productsByCategory(
+                chipMan.text.toString().lowercase()
+            )
+        }
+        chipWoman.setOnClickListener {
+            viewModel.productsByCategory(
+                chipWoman.text.toString().lowercase()
+            )
+        }
     }
 
     private fun initObservers() = with(binding!!) {
@@ -65,9 +91,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel.products.observe(viewLifecycleOwner) {
             if (it.any())
                 itemsAdapter.submitList(it)
-                    .also { view?.show(chipGroup, rvShopItems); view?.hide(ivEmpty) }
+                    .also { view?.show(hsv, rvShopItems); view?.hide(ivEmpty) }
             else
-                view?.hide(chipGroup, rvShopItems).also { view?.show(ivEmpty) }
+                view?.hide(hsv, rvShopItems).also { view?.show(ivEmpty) }
         }
     }
 

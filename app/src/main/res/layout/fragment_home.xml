@@ -47,7 +47,7 @@
                 app:layout_constraintTop_toTopOf="@+id/iv_profile" />
 
             <ImageView
-                android:id="@+id/iv_car"
+                android:id="@+id/iv_cart"
                 android:layout_width="40dp"
                 android:layout_height="?actionBarSize"
                 android:background="?attr/selectableItemBackground"
@@ -78,51 +78,61 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group"
+            <HorizontalScrollView
+                android:id="@+id/hsv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="8sp"
-                android:visibility="gone">
+                android:scrollbars="none"
+                >
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_1"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="@string/user_category_electronics"
-                    android:textAlignment="center" />
+                    android:paddingVertical="8sp"
+                    app:singleLine="true"
+                    app:singleSelection="true">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_2"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="@string/user_category_jewelery"
-                    android:textAlignment="center" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_electronic"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="@string/user_category_electronics"
+                        android:textAlignment="center" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_3"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="@string/user_category_mens_clothing"
-                    android:textAlignment="center" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_jewelery"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="@string/user_category_jewelery"
+                        android:textAlignment="center" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_4"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:text="@string/user_category_womens_clothing"
-                    android:textAlignment="center" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_man"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="@string/user_category_mens_clothing"
+                        android:textAlignment="center" />
 
-            </com.google.android.material.chip.ChipGroup>
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_woman"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:text="@string/user_category_womens_clothing"
+                        android:textAlignment="center" />
 
+                </com.google.android.material.chip.ChipGroup>
+
+
+            </HorizontalScrollView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_shop_items"

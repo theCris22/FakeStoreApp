@@ -71,4 +71,20 @@ class FakeStoreRepository @Inject constructor(private val api: FakeStoreApi) {
         }
     }
 
+    suspend fun getProductsByCategory(
+        category: String,
+        onSuccess: (products: ArrayList<Product>) -> Unit,
+        onError: (message: String) -> Unit
+    ) {
+        try {
+            val call = api.getProductsByCategory(category)
+            if (call.isSuccessful)
+                onSuccess(call.body() ?: arrayListOf())
+            else
+                onError(call.errorBody()?.string().toString())
+        } catch (ex: Exception) {
+            onError(ex.cause.toString())
+        }
+    }
+
 }

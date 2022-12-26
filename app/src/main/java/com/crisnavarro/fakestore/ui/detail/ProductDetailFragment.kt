@@ -1,7 +1,6 @@
 package com.crisnavarro.fakestore.ui.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +11,14 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.crisnavarro.fakestore.R
 import com.crisnavarro.fakestore.databinding.FragmentProductDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductDetailFragment : Fragment(R.layout.fragment_product_detail) {
 
     private var binding: FragmentProductDetailBinding? = null
     private val args: ProductDetailFragmentArgs by navArgs()
+
     private val viewModel: ProductDetailViewModel by viewModels()
 
     override fun onCreateView(
@@ -40,12 +42,13 @@ class ProductDetailFragment : Fragment(R.layout.fragment_product_detail) {
         Glide.with(requireContext()).load(product.image).into(ivItem)
         tvTitle.text = product.title
         tvDescription.text = product.description
-        tvPrice.text = product.price.toString().format("%.2d")
+        tvPrice.text = "$${product.price.toString().format("%.2d")}"
         ratingBar.rating = product.rating.rate.toFloat()
     }
 
     private fun initListeners() = with(binding!!) {
         ivClose.setOnClickListener { findNavController().popBackStack() }
+        ivAddCart.setOnClickListener {}
     }
 
     override fun onDestroy() {
